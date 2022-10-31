@@ -1,0 +1,22 @@
+{% extends 'activite/base1.html' %}
+
+{% block title %}
+ Bienvenu
+{% endblock %}
+{% block content %}
+
+<div class="header">
+<h1>Les Blogs</h1>
+<a href="{% url 'blog-create' %}">Créer un nouveau Blog</a>
+</div>
+
+<ul>
+ {% for blog in blogs %}
+ <li><a href="{% url 'blog-detail' blog.id %}">{{ blog.title }}</a>
+<a href="{% url 'blog-update' blog.id %}">[modifier]</a>
+<a href="{% url 'blog-delete' blog.id %}">[supprimer]</a>
+</li>
+ {% endfor %}
+</ul>
+
+{% endblock %}

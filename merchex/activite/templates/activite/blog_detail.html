@@ -1,0 +1,19 @@
+{% extends 'activite/base1.html' %}
+
+
+{% block content %}
+
+<h2>{{ blog.title }}</h2>
+
+<ul>
+ <li>Titre : {{ blog.get_title_display }}</li>
+ <li>Description : {{ blog.description }}</li>
+</ul>
+
+<p>{{ blog.description }}</p>
+
+<a href="{% url 'blog-update' blog.id %}">Modifier ce blog</a>
+<a href="{% url 'blog-delete' blog.id %}">Supprimer ce blog</a>
+
+<a href="{% url 'blog-list' %}">Retourner à la liste des blogs</a>
+{% endblock %}
